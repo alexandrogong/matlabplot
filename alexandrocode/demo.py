@@ -1,6 +1,11 @@
 import matplotlib.pyplot as plt
 import pylab as pl
+import pandas as pd
 import numpy as np
+# head = ["表头1", "表头2", "表头3"]
+# l = [[1, 2, 3], [4, 5, 6], [8, 7, 9]]
+# df = pd.DataFrame(l)
+# df.to_csv("testfoo.csv")
 
 # 提供中文字符支持
 pl.rcParams['font.sans-serif'] = ['SimHei']

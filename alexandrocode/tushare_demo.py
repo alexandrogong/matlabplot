@@ -73,10 +73,7 @@ if __name__ == '__main__':
     filename = filename + '.csv'
     data = ts.get_today_all()
 
-    data.to_csv(filename)
-
-    with open(filename, 'w') as f:
-        f.write(data)
+    data.to_csv(filename, encoding="utf-8")
 
     per = data['per']
     trade = data['trade']
@@ -84,6 +81,8 @@ if __name__ == '__main__':
     plt.figure(figsize=[8, 6])
     plt.plot(per, trade)
     plt.show()
+
+
 
 
 
