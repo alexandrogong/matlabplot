@@ -1,6 +1,7 @@
 import tushare as ts
 import matplotlib.pyplot as plt
 import pylab as pl
+import os
 import numpy as np
 import pandas as pd
 
@@ -71,15 +72,22 @@ if __name__ == '__main__':
     # =====获取实时行情数据=====
     filename = '实时行情数据'
     filename = filename + '.csv'
-    data = ts.get_today_all()
 
-    data.to_csv(filename, encoding="utf-8")
+    '''从CSV获取数据 还是从tushare获取数据'''
+    data_src = 0
+    if data_src:
+        data = ts.get_today_all()
+        data.to_csv(filename, encoding="utf_8_sig")
+    else:
+        f = open(filename, encoding="utf_8_sig")
+        data = pd.read_csv(f)
 
-    per = data['per']
+    changepercent = data['changepercent']
     trade = data['trade']
+    print(changepercent)
 
     plt.figure(figsize=[8, 6])
-    plt.plot(per, trade)
+    plt.scatter(trade, changepercent)
     plt.show()
 
 
